@@ -151,19 +151,113 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Hexo-Github静态博客部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/14/Hexo-Github静态博客部署/">Hexo &amp; Github静态博客部署</a>
+      <a class="article-title" href="/2017/03/15/JSON/">JSON</a>
     </h1>
   
 
         
-        <a href="/2017/03/14/Hexo-Github静态博客部署/" class="archive-article-date">
+        <a href="/2017/03/15/JSON/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:31:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>JSON JavaScript Object Notation，JS对象表示法，其为数据结构，不是编程语言。针对JSON，有序列化器和解析器。</p>
+</blockquote>
+<p>1.</p>
+<p>JSON可以表示三种类型值：</p>
+<ul>
+<li>简单值(string<strong>双引号</strong>, number, boolean, null, <strong>没有undefined</strong>)</li>
+<li>对象</li>
+<li>数组</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="string">"name"</span>: <span class="string">"Holoncaro"</span>,</div><div class="line">	<span class="string">"isMale"</span>: <span class="literal">true</span>,</div><div class="line">	<span class="string">"age"</span>: <span class="number">28</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对象和数组通常是JSON数据结构的最外层形式，JSON不支持变量、函数、对象实例。</p>
+<p>2.</p>
+<blockquote>
+<p>全局JSON对象，有两个对象<code>stringify()</code>和<code>parse()</code>，用于序列化为JSON字符串和解析为原生JS值。</p>
+</blockquote>
+<hr>
+<ul>
+<li>直接序列化</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = &#123;</div><div class="line">	<span class="attr">name</span>: <span class="string">'Holoncaro'</span>,</div><div class="line">	<span class="attr">age</span>: <span class="literal">undefined</span>,</div><div class="line">	<span class="attr">hobby</span>: <span class="literal">null</span>,</div><div class="line">	<span class="attr">loveNum</span>: <span class="number">2</span>,</div><div class="line">	<span class="attr">sayHi</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(arr))</div></pre></td></tr></table></figure>
+<p>输出的结果为 <code>{&quot;name&quot;:&quot;Holoncaro&quot;,&quot;hobby&quot;:null,&quot;loveNum&quot;:2}</code></p>
+<ul>
+<li>带过滤数组的序列化</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(arr,[<span class="string">"name"</span>]))</div></pre></td></tr></table></figure>
+<p>输出的结果为 <code>{&quot;name&quot;:&quot;Holoncaro&quot;}</code></p>
+<ul>
+<li>带过滤函数的序列化</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">JSON</span>.stringify(arr, <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>)</span>&#123;</div><div class="line">	<span class="keyword">switch</span>(key)&#123;</div><div class="line">		<span class="keyword">case</span> <span class="string">"name"</span>:</div><div class="line">			<span class="keyword">return</span> <span class="string">'Hi'</span>+value;</div><div class="line">		<span class="keyword">case</span> <span class="string">"age"</span>:</div><div class="line">			<span class="keyword">return</span> <span class="number">25</span>;</div><div class="line">		<span class="keyword">case</span> <span class="string">"loveNum"</span>:</div><div class="line">			<span class="keyword">return</span> <span class="literal">undefined</span>;</div><div class="line">		<span class="keyword">default</span>:</div><div class="line">			<span class="keyword">return</span> value;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>输出的结果为 <code>{&quot;name&quot;:&quot;HiHoloncaro&quot;,&quot;age&quot;:25,&quot;hobby&quot;:null}</code></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSON</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/JSON/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Hexo &amp; Github Deploy Static Blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/14/Hexo & Github Deploy Static Blog/">Hexo &amp; Github Deploy Static Blog</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/14/Hexo & Github Deploy Static Blog/" class="archive-article-date">
   	<time datetime="2017-03-14T15:45:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
 </a>
         
@@ -177,16 +271,58 @@
 <p>电脑装有NodeJs、Git，注册了Github账户。</p>
 <blockquote>
 <p>Hexo：简单来说，就是一款快速生成博客框架的插件；</p>
-<p>Github： 托管代码，并生成可视页面；</p>
-<p>NodeJs： JavaScript语言的运行环境，运行npm；</p>
-<p>Git： 代码版本管理工具，也用于本地与github进行数据沟通。</p>
+<p>Github： 代码托管、社交编程网站，顺便将Repo仓库里代码生成可视页面，须有index.html默认入口文件；</p>
+<p>NodeJs： 基于Chrome的V8引擎提取出的JavaScript语言的运行环境，这里主要运行npm；</p>
+<p>Git： 代码版本管理工具，这儿用于本地代码上传至github服务器保存。</p>
 </blockquote>
+<ol>
+<li>博客雏形</li>
+</ol>
+<p>在Git-bash中运行下面指令(配置好npm环境变量)，安装hexo这个node_module</p>
+<pre><code>`npm install hexo-cli --global`
+</code></pre><p>新建一个文件夹/folder，在其中打开Git-bash，运行命令，/folder文件夹中自动生成需要的框架：</p>
+<pre><code>`hexo init `
+</code></pre><p>根据package.json，自动安装hexo运行所依赖的所有包，生成node_modules文件夹(时间稍长，此步建议翻墙):</p>
+<pre><code>`npm install`
+</code></pre><p>可以先在本地跑下博客雏形，在/folder中打开Git-bash，运行指令:</p>
+<pre><code>`hexo generate`
+</code></pre><p>生成public文件夹，即静态页面生成，然后运行下面指令，启动本地服务器(127.0.0.1:4000)</p>
+<pre><code>`hexo server`
+</code></pre><p>在Git-bash中Ctrl+C可以停止本地服务器</p>
+<ol>
+<li>Github仓库</li>
+</ol>
+<p>在Github中创建名为: YourName.github.io的repository，其中YourName为用户名。</p>
 <ol>
 <li>开始部署</li>
 </ol>
-<p>新建一个文件夹，在其中打开Git-bash，运行命令<br>    <code>npm install hexo --global</code><br>    <code>hexo init</code></p>
-<p>成功生成博客框架<br>    <code>hexo generate</code><br>    <code>hexo server</code></p>
-<p>生成public文件夹，静态页面生成，然后启动本地服务器(127.0.0.1:4000)</p>
+<p>在/folder文件夹中Git-bash运行下面指令(–save为了将包信息保存在package.json中):</p>
+<pre><code>`npm install hexo-deployer-git --save`
+</code></pre><p>修改_config.yml文件中配置：</p>
+<blockquote>
+<p>deploy:<br>       type: git<br>       repository: <a href="https://github.com/YourName/YourName.github.io" target="_blank" rel="external">https://github.com/YourName/YourName.github.io</a><br>       branch: master</p>
+</blockquote>
+<p>再用Git-bash挨个输入下面指令</p>
+<pre><code>`hexo clean`    清除上次自动生成的静态博客
+
+`hexo generate`    再次生成新的静态博客
+
+`hexo deploy`    同步部署到github的YourName.github.io仓库
+</code></pre><p>如果没有配置SSH的话，过程中应该要输入用户名和密码进行确认，不然随意同步别人的仓库岂不乱套了。</p>
+<ol>
+<li>发表文章</li>
+</ol>
+<p>输入下面指令，在/folder/source/_post中生成后缀为.md的轻标记类型文章:</p>
+<pre><code>`hexo new &quot;Article Title&quot;`
+</code></pre><p>新建页面，在/folder/source中多了文件夹，其中还有个index.md入口文件:</p>
+<pre><code>`hexo new page &quot;页面名称&quot;`
+</code></pre><p>写完博文需要与Github同步，这样访问YourName.github.io就可以访问了:</p>
+<pre><code>`hexo clean`
+`hexo generate`
+`hexo deploy`
+</code></pre><ol>
+<li>切换主题</li>
+</ol>
 <p>…未完待续</p>
 
       
@@ -211,7 +347,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/14/Hexo-Github静态博客部署/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/14/Hexo & Github Deploy Static Blog/">展开全文 >></a>
         </p>
       
 
@@ -229,19 +365,19 @@
 
 
   
-    <article id="post-MarkDown-标记语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MarkDown Tips" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/12/MarkDown-标记语法/">MarkDown Tips</a>
+      <a class="article-title" href="/2017/03/12/MarkDown Tips/">MarkDown Tips</a>
     </h1>
   
 
         
-        <a href="/2017/03/12/MarkDown-标记语法/" class="archive-article-date">
+        <a href="/2017/03/12/MarkDown Tips/" class="archive-article-date">
   	<time datetime="2017-03-12T15:01:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
 </a>
         
@@ -249,20 +385,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h1><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><h1 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h1><ul>
+        <p>1.</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p>2.</p>
+<ul>
 <li>无序列表</li>
 <li>无序列表</li>
 <li>无序列表</li>
 </ul>
-<h1 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h1><blockquote>
+<ol>
+<li>有序列表</li>
+<li>有序列表</li>
+<li>有序列表</li>
+</ol>
+<p>3.</p>
+<blockquote>
 <p>这是代表引用</p>
+<blockquote>
+<p>这是二级引用</p>
+<blockquote>
+<p>这是三级引用</p>
 </blockquote>
-<h1 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h1><p><a href="https://github.com/holoncaro" target="_blank" rel="external">Github</a><br><img src="https://avatars0.githubusercontent.com/u/22029151?v=3&amp;u=10896b638d5e65fb870d6ffb0bfeae59e6cb6980&amp;s=400" alt="IMG"></p>
-<h1 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h1><p><strong>我是粗体</strong><br><em>我是斜体</em></p>
-<h1 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> MarkDown = <span class="literal">null</span>;</div><div class="line"><span class="built_in">console</span>.log(MarkDown);</div></pre></td></tr></table></figure>
-<pre><code>var Tabs = null;
-console.log(Tabs);
-</code></pre><h1 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h1><p>我是分割线</p>
+</blockquote>
+</blockquote>
+<p>4.<br><a href="https://github.com/holoncaro" target="_blank" rel="external">Github</a></p>
+<p><img src="https://avatars0.githubusercontent.com/u/22029151?v=3&amp;u=10896b638d5e65fb870d6ffb0bfeae59e6cb6980&amp;s=400" alt="IMG"></p>
+<p>5.<br><strong>我是粗体</strong><br><em>我是斜体</em></p>
+<p>6.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> MarkDown = <span class="literal">null</span>;</div><div class="line"><span class="built_in">console</span>.log(MarkDown);</div></pre></td></tr></table></figure></p>
+<p><code>var Tabs = null;</code><br><code>console.log(Tabs);</code></p>
+<p>7.<br>我是分割线</p>
 <hr>
 <hr>
 <p>我是分割线</p>
@@ -289,7 +439,7 @@ console.log(Tabs);
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/12/MarkDown-标记语法/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/12/MarkDown Tips/">展开全文 >></a>
         </p>
       
 
@@ -396,11 +546,15 @@ console.log(Tabs);
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
             
             <div class="clearfix"></div>
@@ -431,11 +585,11 @@ console.log(Tabs);
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://weibo.com/u/2616789633" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>美女微博</a>
+              <a href="http://tool.oschina.net/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>在线工具</a>
             </li>
           
             <li class="search-li">
-              <a href="/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+              <a href="http://tool.chinaz.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>站长工具</a>
             </li>
           
             <li class="search-li">
