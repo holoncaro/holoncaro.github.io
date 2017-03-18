@@ -6,36 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://holoncaro.github.io">
-  <title>JSON | Holoncaro&#39;s Blog</title>
+  <title>Function Execute | Holoncaro&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JSON JavaScript Object Notation，JS对象表示法，其为数据结构，不是编程语言。针对JSON，有序列化器和解析器。
-
-1.JSON可以表示三种类型值：
-
-简单值(string 必须双引号, number, boolean, null, 无undefined)
-对象
-数组">
+  <meta name="description" content="变量定义提升、this指针、运算符优先级、原型、继承、全局变量污染、对象属性及原型属性优先级等知识点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSON">
-<meta property="og:url" content="https://holoncaro.github.io/2017/03/15/JSON/index.html">
+<meta property="og:title" content="Function Execute">
+<meta property="og:url" content="https://holoncaro.github.io/2017/03/19/Function Execute/index.html">
 <meta property="og:site_name" content="Holoncaro's Blog">
-<meta property="og:description" content="JSON JavaScript Object Notation，JS对象表示法，其为数据结构，不是编程语言。针对JSON，有序列化器和解析器。
-
-1.JSON可以表示三种类型值：
-
-简单值(string 必须双引号, number, boolean, null, 无undefined)
-对象
-数组">
-<meta property="og:updated_time" content="2017-03-16T16:17:02.714Z">
+<meta property="og:description" content="变量定义提升、this指针、运算符优先级、原型、继承、全局变量污染、对象属性及原型属性优先级等知识点">
+<meta property="og:updated_time" content="2017-03-18T17:54:55.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSON">
-<meta name="twitter:description" content="JSON JavaScript Object Notation，JS对象表示法，其为数据结构，不是编程语言。针对JSON，有序列化器和解析器。
-
-1.JSON可以表示三种类型值：
-
-简单值(string 必须双引号, number, boolean, null, 无undefined)
-对象
-数组">
+<meta name="twitter:title" content="Function Execute">
+<meta name="twitter:description" content="变量定义提升、this指针、运算符优先级、原型、继承、全局变量污染、对象属性及原型属性优先级等知识点">
   
     <link rel="alternative" href="/atom.xml" title="Holoncaro&#39;s Blog" type="application/atom+xml">
   
@@ -177,74 +159,75 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JSON" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Function Execute" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JSON
+      Function Execute
     </h1>
   
 
         
-        <a href="/2017/03/15/JSON/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:31:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+        <a href="/2017/03/19/Function Execute/" class="archive-article-date">
+  	<time datetime="2017-03-18T16:05:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>JSON JavaScript Object Notation，JS对象表示法，其为数据结构，不是编程语言。针对JSON，有序列化器和解析器。</p>
-</blockquote>
-<p>1.<br>JSON可以表示三种类型值：</p>
-<ul>
-<li>简单值(string <em>必须双引号</em>, number, boolean, null, <em>无undefined</em>)</li>
-<li>对象</li>
-<li>数组</li>
-</ul>
-<a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="string">"name"</span>: <span class="string">"Holoncaro"</span>,</div><div class="line">	<span class="string">"isMale"</span>: <span class="literal">true</span>,</div><div class="line">	<span class="string">"age"</span>: <span class="number">28</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>对象和数组通常是JSON数据结构的最外层形式，JSON不支持变量、函数、对象实例。</p>
-<p>2.</p>
+        <p>变量定义提升、this指针、运算符优先级、原型、继承、全局变量污染、对象属性及原型属性优先级等知识点<br><a id="more"></a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">"No.1"</span>) &#125;;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>构造器函数小结：</p>
+<ol>
+<li>函数执行一次，getName这个无var变量才挂载到window对象下。<code>Foo(); getName(); =&gt; No.1</code></li>
+<li><code>Foo()</code>，返回的this指向window对象。<code>Foo().getName(); =&gt; No.1</code></li>
+<li><code>new Foo()</code>，返回的this指向新建对象。<code>new Foo().getName() =&gt; undefined</code></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Foo.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">"No.2"</span>) &#125;;</div></pre></td></tr></table></figure>
+<p>创建Foo对象的静态属性getName，存储一个匿名函数：</p>
+<ol>
+<li><code>Foo.getName(); =&gt; No.2</code></li>
+<li>对象层面的一个属性.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Foo.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">"No.3"</span>) &#125;;</div></pre></td></tr></table></figure>
+<p>构造器原型上的getName方法:</p>
+<ol>
+<li><code>new Foo().getName() =&gt; No.3</code></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">"No.4"</span>) &#125;;</div></pre></td></tr></table></figure>
+<p>函数表达式赋值：</p>
+<ol>
+<li>函数不提前，变量提前.<code>var getName; getName = function(){ ** };</code></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">"No.5"</span>) &#125;;</div></pre></td></tr></table></figure>
+<p>函数申明：</p>
+<ol>
+<li>函数体提前。</li>
+</ol>
 <blockquote>
-<p>全局JSON对象，有两个对象方法 <code>stringify()</code> 和 <code>parse()</code> ，用于将对象序列化为JSON字符串及将JSON解析为原生JS值。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = &#123;</div><div class="line">	<span class="attr">name</span>: <span class="string">'Holoncaro'</span>,</div><div class="line">	<span class="attr">age</span>: <span class="literal">undefined</span>,</div><div class="line">	<span class="attr">hobby</span>: <span class="literal">null</span>,</div><div class="line">	<span class="attr">loveNum</span>: <span class="number">2</span>,</div><div class="line">	<span class="attr">sayHi</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>将上面Js对象进行各种序列化：</p>
-<ul>
-<li>直接序列化(undefined和function会被抛弃)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(arr))</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>输出的结果为 <code>{&quot;name&quot;:&quot;Holoncaro&quot;,&quot;hobby&quot;:null,&quot;loveNum&quot;:2}</code></p>
-<ul>
-<li>带过滤数组的序列化<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(arr,[<span class="string">"name"</span>]))</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>输出的结果为 <code>{&quot;name&quot;:&quot;Holoncaro&quot;}</code></p>
-<ul>
-<li>带过滤函数的序列化<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">JSON</span>.stringify(arr, <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>)</span>&#123;</div><div class="line">	<span class="keyword">switch</span>(key)&#123;</div><div class="line">		<span class="keyword">case</span> <span class="string">"name"</span>:</div><div class="line">			<span class="keyword">return</span> <span class="string">'Hi'</span>+value;</div><div class="line">		<span class="keyword">case</span> <span class="string">"age"</span>:</div><div class="line">			<span class="keyword">return</span> <span class="number">25</span>;</div><div class="line">		<span class="keyword">case</span> <span class="string">"loveNum"</span>:</div><div class="line">			<span class="keyword">return</span> <span class="literal">undefined</span>;</div><div class="line">		<span class="keyword">default</span>:</div><div class="line">			<span class="keyword">return</span> value;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>输出的结果为 <code>{&quot;name&quot;:&quot;HiHoloncaro&quot;,&quot;age&quot;:25,&quot;hobby&quot;:null}</code></p>
-<p>3.</p>
+<p>function Foo(){<br>  getName = function(){ console.log(“No.1”) };<br>  return this;<br> }</p>
+<p> Foo.getName = function(){ console.log(“No.2”) };</p>
+<p> Foo.prototype.getName = function(){ console.log(“No.3”) };</p>
+<p> var getName = function(){ console.log(“No.4”) };</p>
+<p> function getName(){ console.log(“No.5”) };</p>
 <blockquote>
-<p>‘JSON.stingify()’第三个参数，使字符串保持缩进。</p>
+<ol>
+<li>Foo.getName();  =&gt;No.2</li>
+<li>getName();  =&gt;No.4</li>
+<li>Foo().getName();  =&gt;No.1</li>
+<li>getName();  =&gt;1</li>
+<li>new Foo.getName();  =&gt;No.2</li>
+<li>new Foo().getName();  =&gt;No.3</li>
+<li>new new Foo().getName();  =&gt;No.3</li>
+</ol>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(obj,<span class="literal">null</span>,<span class="number">2</span>));</div></pre></td></tr></table></figure>
-<p>输出的结果为</p>
-<pre><code>{
-  &quot;name&quot;: &quot;Holoncaro&quot;,
-  &quot;isMale&quot;: true,
-  &quot;age&quot;: 28
-}
-</code></pre><p>4.</p>
-<blockquote>
-<p>如果对象里定义了toJSON()方法，则使用JSON.stringify()时，自动调用toJSON()。</p>
 </blockquote>
+<p>解析：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">"No.1"</span>) &#125;;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> getName;  <span class="comment">//申明提前</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">"No.5"</span>) &#125;;  <span class="comment">//申明提前</span></div><div class="line">Foo.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">"No.2"</span>) &#125;;</div><div class="line">Foo.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">"No.3"</span>) &#125;;</div><div class="line">getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">"No.4"</span>) &#125;;</div></pre></td></tr></table></figure></p>
+<p>No.2 ==&gt; No.4(先是No.5) ==&gt; </p>
 
       
 
@@ -289,11 +272,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSON</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">《Js高级程序设计》</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Js</a>
         		</li>
       		
 		</ul>
@@ -349,7 +328,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://holoncaro.github.io/2017/03/15/JSON/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://holoncaro.github.io/2017/03/19/Function Execute/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -363,18 +342,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/19/Function Execute/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Function Execute
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/14/Hexo & Github Deploy Static Blog/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hexo &amp; Github Deploy Static Blog</div>
+    <a href="/2017/03/15/JSON/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JSON</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -388,7 +358,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="JSON" data-title="JSON" data-url="https://holoncaro.github.io/2017/03/15/JSON/"></div>
+	<div class="ds-thread" data-thread-key="Function Execute" data-title="Function Execute" data-url="https://holoncaro.github.io/2017/03/19/Function Execute/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
