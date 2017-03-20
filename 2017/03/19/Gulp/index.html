@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://holoncaro.github.io/2017/03/19/Gulp/index.html">
 <meta property="og:site_name" content="Holoncaro's Blog">
 <meta property="og:description" content="Gulp：自动化构建工具，实质就是完成机械的重复的工作。实现LESS/SASS编译、压缩、合并，JS合并、压缩、混淆，img压缩复制，html压缩等。">
-<meta property="og:updated_time" content="2017-03-19T16:31:33.111Z">
+<meta property="og:updated_time" content="2017-03-20T14:36:34.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gulp">
 <meta name="twitter:description" content="Gulp：自动化构建工具，实质就是完成机械的重复的工作。实现LESS/SASS编译、压缩、合并，JS合并、压缩、混淆，img压缩复制，html压缩等。">
@@ -179,11 +179,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Gulp：自动化构建工具，实质就是完成机械的重复的工作。实现LESS/SASS编译、压缩、合并，JS合并、压缩、混淆，img压缩复制，html压缩等。<br><a id="more"></a></p>
+        <p>Gulp：自动化构建工具，实质就是完成机械的重复的工作。实现LESS/SASS编译、压缩、合并，JS合并、压缩、混淆，img压缩复制，html压缩等。</p>
+<a id="more"></a>
 <ol>
 <li><p><code>npm init</code><br> 回答一系列问题之后，生成package.json文件（包管理）。</p>
 </li>
-<li><p><code>npm install gulp --save-dev</code><br> 等等等…生成node_modules的，里面有gulp包。同时package.json里加入开发包依赖。</p>
+<li><p><code>npm install gulp --save-dev</code><br> wait等着…生成node_modules的，里面有gulp包。同时package.json里加入开发包依赖。</p>
 </li>
 <li><p>gulp主文件<br> gulpfile.js(文件名固定)，用于注册任务。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//引入Gulp模块</span></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="comment">//注册一个任务</span></div><div class="line">gulp.task(<span class="string">'say'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//执行say任务的代码</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
@@ -220,6 +221,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> browserSync = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>).create();</div><div class="line"></div><div class="line">gulp.task(<span class="string">'serve'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  browserSync.init(&#123;</div><div class="line">    <span class="attr">server</span>: &#123;<span class="attr">baseDir</span>:<span class="string">'./dist/'</span>&#125;</div><div class="line">  &#125;)</div><div class="line">  gulp.watch(<span class="string">'src/style/*.less'</span>, [<span class="string">'style'</span>]);</div><div class="line">  gulp.watch(<span class="string">'src/scripts/*.js'</span>, [<span class="string">'script'</span>]);</div><div class="line">  ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<p>实现更改文件后，浏览器自动刷新的具体代码见我的REPO：<br><a href="https://github.com/holoncaro/project_gulp" target="_blank" rel="external">Github/project_gulp</a></p>
 <hr>
 <h3 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h3><p>[编译Less: gulp-less]<br>[创建本地服务器: browser-sync]<br>[合并文件: gulp-concat]<br>[最小化js文件: gulp-uglify]<br>[重命名文件: gulp-raname]<br>[最小化CSS文件: gulp-cssnano]<br>[压缩html文件: gulp-minify-html]<br>[最小化图像: gulp-imagemin]</p>
 <hr>
@@ -469,10 +471,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JSON</a>
               </li>
              
@@ -482,6 +480,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>
