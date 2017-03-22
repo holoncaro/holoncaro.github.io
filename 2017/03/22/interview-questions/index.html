@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://holoncaro.github.io">
-  <title>Archives | Holoncaro&#39;s Blog</title>
+  <title>那些坑！种上花，埋上土 | Holoncaro&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Holoncaro's Blog">
-<meta property="og:url" content="https://holoncaro.github.io/archives/index.html">
+  <meta name="description" content="略坑的小题儿些…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="那些坑！种上花，埋上土">
+<meta property="og:url" content="https://holoncaro.github.io/2017/03/22/interview-questions/index.html">
 <meta property="og:site_name" content="Holoncaro's Blog">
+<meta property="og:description" content="略坑的小题儿些…">
+<meta property="og:updated_time" content="2017-03-22T12:25:24.596Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Holoncaro's Blog">
+<meta name="twitter:title" content="那些坑！种上花，埋上土">
+<meta name="twitter:description" content="略坑的小题儿些…">
   
     <link rel="alternative" href="/atom.xml" title="Holoncaro&#39;s Blog" type="application/atom+xml">
   
@@ -155,74 +159,155 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-interview-questions" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/22/Design-pattern/" class="archive-article-date">
-  	<time datetime="2017-03-22T13:18:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/22/Design-pattern/">设计模式</a>
+    <h1 class="article-title" itemprop="name">
+      那些坑！种上花，埋上土
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/22/interview-questions/" class="archive-article-date">
+        
+        <a href="/2017/03/22/interview-questions/" class="archive-article-date">
   	<time datetime="2017-03-22T10:21:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-22</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/22/interview-questions/">那些坑！种上花，埋上土</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>   略坑的小题儿些… </p>
+<a id="more"></a>
+<blockquote>
+<p>Js数组操作中，哪些方法不能改变自身？</p>
+<blockquote>
+<p>join/concat/slice</p>
+</blockquote>
+</blockquote>
+<p>push =&gt; 改变，返回新长度。<br>unshifi =&gt; 改变，返回新长度。<br>pop =&gt; 改变，返回被删元素。<br>shift =&gt; 改变，返回被删元素。<br>join =&gt; 不变，返回字符串。<br>reverse =&gt; 改变，返回翻转数组。<br>sort =&gt; 改变，返回排序数组。<br>concat =&gt; 不变，返回合并后数组。<br>slice =&gt; 不变，返回切割的数组。<br>splice =&gt; 改变，返回丢弃部分。</p>
+<hr>
+<blockquote>
+<p>假设output是函数，输出一行文本。下面输出什么？<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; output(<span class="keyword">typeof</span>( output(<span class="string">"Hello World!"</span>) );</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Hello World! undefined</p>
+</blockquote>
+</blockquote>
+<p>内层函数输出Hello World！，没有return返回值，默认返回undefined，<br>typeof undefined依旧为undefined。</p>
+<hr>
+<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">&gt;   <span class="keyword">this</span>.do = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="keyword">return</span> <span class="string">'foo'</span> &#125;</div><div class="line">&gt; &#125;;</div><div class="line">&gt; Fn.prototype = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">&gt;   <span class="keyword">this</span>.do = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="keyword">return</span> <span class="string">'bar'</span> &#125;</div><div class="line">&gt; &#125;</div><div class="line">&gt; <span class="keyword">var</span> x = <span class="keyword">new</span> Fn().do();</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>‘foo’</p>
+</blockquote>
+</blockquote>
+<p>new Fn()，实例化了一个对象，this指向这个对象，<br>并且有do()方法，不沿着原型链往上找了。</p>
+<hr>
+<blockquote>
+<p>RegExp对象的方法有什么？</p>
+<blockquote>
+<p>compile/exec/test</p>
+</blockquote>
+</blockquote>
+<hr>
+<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="keyword">var</span> A = &#123; <span class="attr">n</span>:<span class="number">4399</span> &#125;;</div><div class="line">&gt; <span class="keyword">var</span> B = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="keyword">this</span>.n=<span class="number">9999</span> &#125;;</div><div class="line">&gt; <span class="keyword">var</span> C = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="keyword">var</span> n=<span class="number">8888</span> &#125;;</div><div class="line">&gt; B.prototype = A;</div><div class="line">&gt; C.prototype = A;  <span class="comment">//B、C原型都是A</span></div><div class="line">&gt; <span class="keyword">var</span> b = <span class="keyword">new</span> B();  <span class="comment">//b.n=9999!</span></div><div class="line">&gt; <span class="keyword">var</span> c = <span class="keyword">new</span> C();  <span class="comment">//c自身没有n属性，找到prototype上的n属性</span></div><div class="line">&gt; A.n++;</div><div class="line">&gt; <span class="built_in">console</span>.log(b.n);</div><div class="line">&gt; <span class="built_in">console</span>.log(c.n); <span class="comment">//4400</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>9999、4400</p>
+</blockquote>
+</blockquote>
+<hr>
+<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="keyword">var</span> bb = <span class="number">1</span>;</div><div class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">bb</span>)</span>&#123;  <span class="comment">//形参变量=局部变量</span></div><div class="line">&gt;   bb = <span class="number">2</span>;</div><div class="line">&gt;   alert(bb);</div><div class="line">&gt; &#125;</div><div class="line">&gt; fn(bb);</div><div class="line">&gt; alert(bb);</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>2、1</p>
+</blockquote>
+</blockquote>
+<p>此题去掉形参，则弹出2、2。</p>
+<hr>
+<blockquote>
+<p>var val;</p>
+<blockquote>
+<p>console.log(‘Value is’ + (val!=’0’) ? ‘define’:’undefine’);</p>
+</blockquote>
+</blockquote>
+<p>‘+’优先级高于三目运算，低于括号。<br>JS中，6中情况当成false =&gt; false/undefined/null/0/NAN/‘’</p>
+<hr>
+<blockquote>
+<p>Javascript 异步模式的编程？</p>
+</blockquote>
+<p>回调函数、事件监听、发布/订阅、Promises对象</p>
+<hr>
+<blockquote>
+<p>‘+new Array(017)’输出结果是什么？</p>
+<blockquote>
+<p>NAN</p>
+</blockquote>
+</blockquote>
+<p>八进制的17 &lt;==&gt; ‘+new Array(15)’<br>=&gt;Number(new Array(15))<br>=&gt;Number(new Array(15).valueOf()) [不是原始值，执行toString()]<br>=&gt;Number(new Array(15).toString())<br>=&gt;Number(“,,,,,,,,,,,,,,”)<br>=&gt;NAN</p>
+<hr>
+<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="keyword">var</span> a = <span class="string">'undefined'</span>;</div><div class="line">&gt; <span class="keyword">var</span> b = <span class="string">'false'</span>;</div><div class="line">&gt; <span class="keyword">var</span> c = <span class="string">''</span>;</div><div class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">assert</span>(<span class="params">aVar</span>)</span>&#123;</div><div class="line">&gt;   <span class="keyword">if</span>(aVar) &#123; alert(<span class="literal">true</span>); &#125;</div><div class="line">&gt;   <span class="keyword">else</span> &#123; alert(<span class="literal">false</span>); &#125;</div><div class="line">&gt; &#125;</div><div class="line">&gt; assert(a);</div><div class="line">&gt; assert(b);</div><div class="line">&gt; assert(c);</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>true/true/false</p>
+</blockquote>
+</blockquote>
+<hr>
+<blockquote>
+<p>关于IE、FF脚本的区别描述正确的是？</p>
+<blockquote>
+<p>innerText IE支持，FF不支持。<br>setAttribute(‘class’,’styleClass’) FF支持，IE不支持</p>
+</blockquote>
+</blockquote>
+<p><a href="http://w3help.org/zh-cn/causes/index.html" target="_blank" rel="external">兼容性问题</a></p>
+<hr>
+<blockquote>
+<p>浏览器端存储技术？</p>
+<blockquote>
+<p>cookie =&gt; 大小限制在4k，放在请求头浪费带宽，过期前有效。<br>sessionStorage =&gt; 5M，本地，关闭即删除。<br>localStorage =&gt; 5M，本地，手动删除。</p>
+</blockquote>
+</blockquote>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              求赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢赏我糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://omwz94m6q.bkt.clouddn.com/148967.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://omwz94m6q.bkt.clouddn.com/1489680.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -234,141 +319,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://holoncaro.github.io/2017/03/22/interview-questions/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/19/Gulp/" class="archive-article-date">
-  	<time datetime="2017-03-19T11:51:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/19/Gulp/">Gulp</a>
-    </h1>
+    <a href="/2017/03/22/Design-pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          设计模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/19/Gulp/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Gulp</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="interview-questions" data-title="那些坑！种上花，埋上土" data-url="https://holoncaro.github.io/2017/03/22/interview-questions/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"holoncaro"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gulp</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/19/Function Execute/" class="archive-article-date">
-  	<time datetime="2017-03-18T16:05:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/19/Function Execute/">Function Execute(函数调用顺序解析)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/15/JSON/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:31:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/15/JSON/">JSON</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSON</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">《Js高级程序设计》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -391,8 +450,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
