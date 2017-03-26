@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://holoncaro.github.io">
-  <title>Js函数中this关键字的指向 | Holoncaro&#39;s Blog</title>
+  <title>Waterfall | Holoncaro&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JavaScript中关键字this的各种指向问题浅析">
+  <meta name="description" content="函数式实现瀑布流加载效果,在滚动到页面底部时,进行自动加载.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Js函数中this关键字的指向">
-<meta property="og:url" content="https://holoncaro.github.io/2017/03/23/this-Keyword/index.html">
+<meta property="og:title" content="Waterfall">
+<meta property="og:url" content="https://holoncaro.github.io/2017/03/26/Waterfall/index.html">
 <meta property="og:site_name" content="Holoncaro's Blog">
-<meta property="og:description" content="JavaScript中关键字this的各种指向问题浅析">
-<meta property="og:updated_time" content="2017-03-23T13:53:00.002Z">
+<meta property="og:description" content="函数式实现瀑布流加载效果,在滚动到页面底部时,进行自动加载.">
+<meta property="og:updated_time" content="2017-03-26T16:04:10.347Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Js函数中this关键字的指向">
-<meta name="twitter:description" content="JavaScript中关键字this的各种指向问题浅析">
+<meta name="twitter:title" content="Waterfall">
+<meta name="twitter:description" content="函数式实现瀑布流加载效果,在滚动到页面底部时,进行自动加载.">
   
     <link rel="alternative" href="/atom.xml" title="Holoncaro&#39;s Blog" type="application/atom+xml">
   
@@ -159,59 +159,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-this-Keyword" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Waterfall" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Js函数中this关键字的指向
+      Waterfall
     </h1>
   
 
         
-        <a href="/2017/03/23/this-Keyword/" class="archive-article-date">
-  	<time datetime="2017-03-23T10:39:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
+        <a href="/2017/03/26/Waterfall/" class="archive-article-date">
+  	<time datetime="2017-03-26T14:50:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JavaScript中关键字this的各种指向问题浅析<br><a id="more"></a></p>
-<blockquote>
-<p>Js的this必须在<strong>函数</strong>中，函数定义时并不确定this指向，必须看<strong>函数谁调用??</strong>。<br>函数调用：直接调用/方法调用/new调用/特殊调用(call.apply，函数绑定到对象上进行调用)</p>
-</blockquote>
+        <p>函数式实现瀑布流加载效果,在滚动到页面底部时,进行自动加载.</p>
+<a id="more"></a>
 <ol>
-<li>直接调用<br><strong>任何作用域</strong>下，直接通过fn()来进行调用的方式，均为直接调用。比如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">!<span class="function"><span class="keyword">function</span> <span class="title">fn0</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>) =&gt; <span class="built_in">window</span>对象</div><div class="line">  &#125;;</div><div class="line">  fn1();</div><div class="line">&#125;()</div></pre></td></tr></table></figure>
+<li><p>HTML结构</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span> <span class="attr">class</span>=<span class="string">"clearFix"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pic"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"pic/1.JPG"</span> <span class="attr">alt</span>=<span class="string">"img"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 类似.wrap结构 --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>CSS样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#main</span>&#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">width</span>: <span class="number">90%</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.wrap</span>&#123;</div><div class="line">  <span class="attribute">float</span>: left;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">15px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">15px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.pic</span>&#123;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">5px</span>;</div><div class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(0,0,0,0.5);</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">img</span>&#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">230px</span>;</div><div class="line">  <span class="attribute">height</span>: auto;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.clearFix</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">  <span class="attribute">display</span>: block;</div><div class="line">  <span class="attribute">clear</span>: both;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>JavaScript代码<br>waterFall()函数,对如何插入进行解析?</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">waterFall</span>(<span class="params">parent,brick</span>)</span>&#123;</div><div class="line">  <span class="comment">// 获取到需要waterfall的对象</span></div><div class="line">  <span class="keyword">var</span> oParent = <span class="built_in">document</span>.getElementById(parent);</div><div class="line">  <span class="comment">// 获取到图片砖组成的数组,这里对IE低版本的重写了getByClass函数</span></div><div class="line">  <span class="keyword">var</span> aBrick = oParent.getElementsByClassName ? oParent.getElementsByClassName(brick) : getByClass(parent,brick);</div><div class="line">  <span class="comment">// img宽度230px,由此获取单个brick的宽度</span></div><div class="line">  <span class="comment">// 267,包括padding,无px值(15+10+10+2+230)</span></div><div class="line">  <span class="keyword">var</span> oBrickW = aBrick[<span class="number">0</span>].offsetWidth;</div><div class="line">  <span class="comment">// 获取主屏可视区的宽度</span></div><div class="line">  <span class="keyword">var</span> windowW = <span class="built_in">window</span>.innerWidth||<span class="built_in">document</span>.documentElement.clientWidth||<span class="built_in">document</span>.body.clientWidth;</div><div class="line">  <span class="comment">// 向下取整,每行最多显示的图片砖数</span></div><div class="line">  <span class="comment">// 动态设置#mian的宽度,将其居中</span></div><div class="line">  <span class="keyword">var</span> rowN = <span class="built_in">Math</span>.floor(windowW/oBrickW);</div><div class="line">  <span class="keyword">var</span> mainW = rowN*oBrickW;</div><div class="line">  oParent.style.cssText = <span class="string">"width:"</span>+mainW+<span class="string">"px; margin:0 auto;"</span>;</div><div class="line">  <span class="comment">// 如何插值,将新aBrick[i]插到最短的那一列.</span></div><div class="line">  <span class="comment">// arrH存储每一列的高度值.</span></div><div class="line">  <span class="keyword">var</span> arrH = [];</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,len=aBrick.length;i&lt;len;i++)&#123;</div><div class="line">    <span class="keyword">if</span>(i&lt;rowN)&#123;</div><div class="line">      <span class="comment">//第一排,按顺序插排,然后存储列高就行.</span></div><div class="line">      arrH.push(aBrick[i].clientHeight);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="comment">// 用Math.min方法,获取数组中的最小值.</span></div><div class="line">      <span class="keyword">var</span> minH = <span class="built_in">Math</span>.min.apply(<span class="literal">null</span>,arrH);</div><div class="line">      <span class="comment">// 自定义函数,获取最短列的index索引.</span></div><div class="line">      <span class="keyword">var</span> index = getIndex(arrH,minH);</div><div class="line">      <span class="comment">// 对新插进的,进行动态绝对定位.</span></div><div class="line">      aBrick[i].style.cssText = <span class="string">"position:absolute;top:"</span>+minH+<span class="string">"px;left:"</span>+oBrickW*index+<span class="string">"px"</span>;</div><div class="line">      <span class="comment">// 插入了新图砖,对此列高度进行增加.</span></div><div class="line">      arrH[index] += aBrick[i].offsetHeight;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<p>insertPic()函数,触发事件时,新插入图片砖的数量<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertPic</span>(<span class="params">parent,count</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> oParent = <span class="built_in">document</span>.getElementById(parent);</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;count;i++)&#123;</div><div class="line">    <span class="comment">// Test,随机获取图片路径</span></div><div class="line">    <span class="keyword">var</span> random = <span class="built_in">Math</span>.ceil(<span class="built_in">Math</span>.random()*<span class="number">20</span>);</div><div class="line">    <span class="comment">// 创建img对象,并对'alt'和'src'属性赋值.</span></div><div class="line">    <span class="keyword">var</span> oImg = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>);</div><div class="line">    <span class="comment">/* oImg.alt = random; */</span></div><div class="line">    <span class="comment">/* oImg.src = "pic/"+random+".jpg"; */</span></div><div class="line">    oImg.setAttribute(<span class="string">"alt"</span>,random);</div><div class="line">    oImg.setAttribute(<span class="string">"src"</span>,<span class="string">"pic/"</span>+random+<span class="string">".jpg"</span>);</div><div class="line">    <span class="comment">// 创建div对象,并对其增加.pic属性</span></div><div class="line">    <span class="keyword">var</span> oPic = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</div><div class="line">    <span class="comment">/* oPic.setAttribute("class","pic"); */</span></div><div class="line">    <span class="comment">/* oPic.setAttribute("className","pic"); //for IE */</span></div><div class="line">    oPic.className = <span class="string">"pic"</span>;</div><div class="line">    <span class="comment">// 创建div对象,并对其增加.wrap属性</span></div><div class="line">    <span class="keyword">var</span> oWrap = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</div><div class="line">    <span class="comment">/* oWrap.setAttribute("class","wrap"); */</span></div><div class="line">    <span class="comment">/* oWrap.setAttribute("className","wrap"); //for IE */</span></div><div class="line">    oWrap.className = <span class="string">"wrap"</span>;</div><div class="line">    <span class="comment">// 确定3个对象的所属关系.</span></div><div class="line">    oPic.appendChild(oImg);</div><div class="line">    oWrap.appendChild(oPic);</div><div class="line">    oParent.appendChild(oWrap);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>judgeInsert()函数,滚动监听的事件函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">judgeInsert</span>(<span class="params">parent,count</span>)</span>&#123;</div><div class="line">  <span class="comment">// 可视区的高度</span></div><div class="line">  <span class="keyword">var</span> windowH = <span class="built_in">window</span>.innerHeight||<span class="built_in">document</span>.documentElement.clientHeight||<span class="built_in">document</span>.body.clientHeight;</div><div class="line">  <span class="comment">// 可视区高度+滚动消失的高度</span></div><div class="line">  <span class="keyword">var</span> scrollH = <span class="built_in">document</span>.documentElement.scrollHeight || <span class="built_in">document</span>.body.scrollHeight;</div><div class="line">  <span class="comment">// 滚动消失的高度</span></div><div class="line">  <span class="keyword">var</span> scrollT = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</div><div class="line">  <span class="comment">// 当离底部50px时候,加载插入函数insertPic.</span></div><div class="line">  <span class="keyword">if</span>(windowH+scrollT&gt;=(scrollH<span class="number">-50</span>))&#123;</div><div class="line">    insertPic(parent,count);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2个附属函数:<br>(兼容IE,从className获取对象)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getByClass</span>(<span class="params">parent,classValue</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> oParent = <span class="built_in">document</span>.getElementById(parent);</div><div class="line">  <span class="keyword">var</span> allEle = oParent.getElementsByTagName(<span class="string">'*'</span>);</div><div class="line">  <span class="keyword">var</span> arr = [];</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,len=allEle.length;i&lt;len;i++)&#123;</div><div class="line">    <span class="keyword">var</span> classN = allEle[i].className;</div><div class="line">    <span class="keyword">if</span>(classN.indexOf(<span class="string">' '</span>)==<span class="number">-1</span> &amp;&amp; classN==classValue)&#123;</div><div class="line">      arr.push(allEle[i]);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(classN.indexOf(<span class="string">' '</span>)!=<span class="number">-1</span>)&#123;</div><div class="line">      <span class="keyword">var</span> strArr = [];</div><div class="line">      strArr = classN.split(<span class="string">' '</span>);</div><div class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> j <span class="keyword">in</span> strArr)&#123;</div><div class="line">        <span class="keyword">if</span>(strArr[j]==classValue)&#123;</div><div class="line">          arr.push(allEle[i]);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>(获取列索引)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIndex</span>(<span class="params">arr,val</span>)</span>&#123;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> arr)&#123;</div><div class="line">    <span class="keyword">if</span>(arr[i]==val)&#123;</div><div class="line">      <span class="keyword">return</span> i;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <hr>
-<ol>
-<li>方法调用<br>通过对象调用其方法，obj.method()调用形式，this指向调用该方法的对象：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'外层空间'</span>;</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  <span class="attr">name</span> : <span class="string">'Holoncaro'</span>,</div><div class="line">  <span class="attr">sayName</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">obj.sayName(); =&gt; Holoncaro</div><div class="line">fn = obj.sayName;</div><div class="line">fn(); =&gt; 外层空间，<span class="keyword">this</span>指谁调用!</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<hr>
-<ol>
-<li>new调用<br>通过new构造函数产生新对象（注意是否有return）:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">'Holoncaro'</span>);</div><div class="line"><span class="built_in">console</span>.log(person.name); =&gt; Holoncaro</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>如果构造函数里面有return，那么问题来了：</p>
+<h4 id="控制函数"><a href="#控制函数" class="headerlink" title="控制函数"></a>控制函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">// 首先,对已有的图片砖进行规划,排列.</span></div><div class="line">  waterFall(<span class="string">"main"</span>,<span class="string">"wrap"</span>);</div><div class="line">  <span class="comment">// 滚动时,判断是否需要插入10条新数据?</span></div><div class="line">  <span class="comment">// 然后再执行规划,排序.</span></div><div class="line">  <span class="built_in">window</span>.onscroll = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    judgeInsert(<span class="string">"main"</span>,<span class="number">10</span>);</div><div class="line">    waterFall(<span class="string">"main"</span>,<span class="string">"wrap"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
-<li>return null/undefined/基本数据类型，等同于可以忽略。</li>
-<li>return {}/[]等对象类型，person就指向return的对象。</li>
+<li>如果html中置空了,没有图片砖.</li>
+<li>那么先执行<code>inserPic(&#39;main&#39;,30)</code>.</li>
+<li>插入30条图片砖数据.</li>
 </ul>
-<blockquote>
-<p>new Construct()是一种创建对象的语法糖，等价于：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="keyword">var</span> bar = (<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">&gt;   <span class="keyword">var</span> _newObj = &#123;</div><div class="line">&gt;     <span class="keyword">constructor</span> : person,</div><div class="line">&gt;     __proto__ : person.prototype</div><div class="line">&gt;   &#125;;</div><div class="line">&gt;   _newObj.<span class="keyword">constructor</span>(name);</div><div class="line">&gt;   return _newObj;_</div><div class="line">&gt; &#125;)();</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<hr>
-<ol>
-<li>call/apply调用<br>通过将函数和对象绑定，改变执行上下文。并且可用此调用深入理解直接调用和方法调用:</li>
-</ol>
-<blockquote>
-<p>直接调用 fn() &lt;==&gt; fn.call(window)<br>方法调用 obj.method() &lt;==&gt; obj.method.call(obj) </p>
-</blockquote>
 
       
 
@@ -312,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://holoncaro.github.io/2017/03/23/this-Keyword/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://holoncaro.github.io/2017/03/26/Waterfall/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -326,18 +317,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/24/Reconstruction/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ES3语法重构ES5的数组方法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/22/Design-pattern/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计模式</div>
+    <a href="/2017/03/26/Layout/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">页面的经典布局模式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -351,7 +333,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="this-Keyword" data-title="Js函数中this关键字的指向" data-url="https://holoncaro.github.io/2017/03/23/this-Keyword/"></div>
+	<div class="ds-thread" data-thread-key="Waterfall" data-title="Waterfall" data-url="https://holoncaro.github.io/2017/03/26/Waterfall/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

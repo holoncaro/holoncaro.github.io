@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://holoncaro.github.io">
-  <title>Js函数中this关键字的指向 | Holoncaro&#39;s Blog</title>
+  <title>如果判断Js中的各种数据类型 | Holoncaro&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JavaScript中关键字this的各种指向问题浅析">
+  <meta name="description" content="总的来说，typeof对Object区分不清，instanceof只是针对Object。怎么完美判断数据类型??(基本类型String/Number/Boolean引用类型Array/Function/Object)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Js函数中this关键字的指向">
-<meta property="og:url" content="https://holoncaro.github.io/2017/03/23/this-Keyword/index.html">
+<meta property="og:title" content="如果判断Js中的各种数据类型">
+<meta property="og:url" content="https://holoncaro.github.io/2017/03/25/Data-Type/index.html">
 <meta property="og:site_name" content="Holoncaro's Blog">
-<meta property="og:description" content="JavaScript中关键字this的各种指向问题浅析">
-<meta property="og:updated_time" content="2017-03-23T13:53:00.002Z">
+<meta property="og:description" content="总的来说，typeof对Object区分不清，instanceof只是针对Object。怎么完美判断数据类型??(基本类型String/Number/Boolean引用类型Array/Function/Object)">
+<meta property="og:updated_time" content="2017-03-25T06:03:14.636Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Js函数中this关键字的指向">
-<meta name="twitter:description" content="JavaScript中关键字this的各种指向问题浅析">
+<meta name="twitter:title" content="如果判断Js中的各种数据类型">
+<meta name="twitter:description" content="总的来说，typeof对Object区分不清，instanceof只是针对Object。怎么完美判断数据类型??(基本类型String/Number/Boolean引用类型Array/Function/Object)">
   
     <link rel="alternative" href="/atom.xml" title="Holoncaro&#39;s Blog" type="application/atom+xml">
   
@@ -159,59 +159,44 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-this-Keyword" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Data-Type" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Js函数中this关键字的指向
+      如果判断Js中的各种数据类型
     </h1>
   
 
         
-        <a href="/2017/03/23/this-Keyword/" class="archive-article-date">
-  	<time datetime="2017-03-23T10:39:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
+        <a href="/2017/03/25/Data-Type/" class="archive-article-date">
+  	<time datetime="2017-03-25T05:10:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JavaScript中关键字this的各种指向问题浅析<br><a id="more"></a></p>
-<blockquote>
-<p>Js的this必须在<strong>函数</strong>中，函数定义时并不确定this指向，必须看<strong>函数谁调用??</strong>。<br>函数调用：直接调用/方法调用/new调用/特殊调用(call.apply，函数绑定到对象上进行调用)</p>
-</blockquote>
+        <p>总的来说，typeof对Object区分不清，instanceof只是针对Object。<br>怎么完美判断数据类型??(基本类型String/Number/Boolean引用类型Array/Function/Object)</p>
+<a id="more"></a>
 <ol>
-<li>直接调用<br><strong>任何作用域</strong>下，直接通过fn()来进行调用的方式，均为直接调用。比如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">!<span class="function"><span class="keyword">function</span> <span class="title">fn0</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>) =&gt; <span class="built_in">window</span>对象</div><div class="line">  &#125;;</div><div class="line">  fn1();</div><div class="line">&#125;()</div></pre></td></tr></table></figure>
+<li>typeof 对各数据类型的判断：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="string">'hong'</span> ; <span class="comment">// =&gt;string</span></div><div class="line"><span class="keyword">typeof</span> <span class="number">1022</span> ; <span class="comment">// =&gt;number</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">true</span> ; <span class="comment">// =&gt;boolean</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">null</span> ; <span class="comment">// =&gt;object*</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> ; <span class="comment">// =&gt;undefined</span></div><div class="line"><span class="keyword">typeof</span> [<span class="number">1</span>,<span class="number">2</span>] ; <span class="comment">// =&gt;object*</span></div><div class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; &#125; ; <span class="comment">// =&gt;function</span></div><div class="line"><span class="keyword">typeof</span> &#123;<span class="attr">name</span>:<span class="string">'hong'</span>&#125; ; <span class="comment">// =&gt;object*</span></div><div class="line"><span class="keyword">typeof</span> <span class="number">23</span>/<span class="string">'h'</span> ; <span class="comment">// =&gt;Nan</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
-<hr>
+<p>如上，对null/数组/纯对象均返回object，typeof不能有效区分三者类型。</p>
 <ol>
-<li>方法调用<br>通过对象调用其方法，obj.method()调用形式，this指向调用该方法的对象：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'外层空间'</span>;</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  <span class="attr">name</span> : <span class="string">'Holoncaro'</span>,</div><div class="line">  <span class="attr">sayName</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">obj.sayName(); =&gt; Holoncaro</div><div class="line">fn = obj.sayName;</div><div class="line">fn(); =&gt; 外层空间，<span class="keyword">this</span>指谁调用!</div></pre></td></tr></table></figure>
+<li>instanceof 对各数据的判断：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="string">'hong'</span> <span class="keyword">instanceof</span> <span class="built_in">String</span>; <span class="comment">// =&gt;false</span></div><div class="line"><span class="number">1022</span> <span class="keyword">instanceof</span> <span class="built_in">Number</span>; <span class="comment">// =&gt;false</span></div><div class="line"><span class="literal">true</span> <span class="keyword">instanceof</span> <span class="built_in">Boolean</span>; <span class="comment">// =&gt;false</span></div><div class="line"><span class="literal">null</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">// =&gt;false</span></div><div class="line"><span class="literal">undefined</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">// =&gt;false</span></div><div class="line">[<span class="number">1</span>,<span class="number">2</span>] <span class="keyword">instanceof</span> <span class="built_in">Array</span>; <span class="comment">// =&gt;true</span></div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; <span class="keyword">instanceof</span> <span class="built_in">Function</span>; <span class="comment">// =&gt;true</span></div><div class="line">&#123;<span class="attr">name</span>:<span class="string">'hong'</span>&#125; <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">// =&gt;true</span></div><div class="line"><span class="number">23</span>/<span class="string">'h'</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">// =&gt;false</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
-<hr>
+<p>但是如果验证:<br><code>var str = new String(&#39;Hong&#39;);</code><br><code>str instanceof String;</code><br>则会返回true!<br>instanceof用于进一步区分object类型。</p>
 <ol>
-<li>new调用<br>通过new构造函数产生新对象（注意是否有return）:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">'Holoncaro'</span>);</div><div class="line"><span class="built_in">console</span>.log(person.name); =&gt; Holoncaro</div></pre></td></tr></table></figure>
+<li>用Object原型上的toString()方法，判断数据类型：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">global</span>)</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">dataType</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> _toString = <span class="built_in">Object</span>.prototype.toString;</div><div class="line">        <span class="keyword">return</span> _toString.call(data).slice(<span class="number">8</span>,<span class="number">-1</span>);</div><div class="line">    &#125;</div><div class="line">    global.dataType = dataType;</div><div class="line">&#125;)(<span class="built_in">window</span>);</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>如果构造函数里面有return，那么问题来了：</p>
-<ul>
-<li>return null/undefined/基本数据类型，等同于可以忽略。</li>
-<li>return {}/[]等对象类型，person就指向return的对象。</li>
-</ul>
-<blockquote>
-<p>new Construct()是一种创建对象的语法糖，等价于：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="keyword">var</span> bar = (<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">&gt;   <span class="keyword">var</span> _newObj = &#123;</div><div class="line">&gt;     <span class="keyword">constructor</span> : person,</div><div class="line">&gt;     __proto__ : person.prototype</div><div class="line">&gt;   &#125;;</div><div class="line">&gt;   _newObj.<span class="keyword">constructor</span>(name);</div><div class="line">&gt;   return _newObj;_</div><div class="line">&gt; &#125;)();</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<hr>
-<ol>
-<li>call/apply调用<br>通过将函数和对象绑定，改变执行上下文。并且可用此调用深入理解直接调用和方法调用:</li>
-</ol>
-<blockquote>
-<p>直接调用 fn() &lt;==&gt; fn.call(window)<br>方法调用 obj.method() &lt;==&gt; obj.method.call(obj) </p>
-</blockquote>
+<p>使用此方法进行验证判断，结果如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">getType(<span class="string">'Holoncaro'</span>); <span class="comment">//--&gt;String</span></div><div class="line">getType(<span class="number">2017</span>); <span class="comment">//--&gt;Number</span></div><div class="line">getType(<span class="literal">true</span>); <span class="comment">//--&gt;Boolean</span></div><div class="line">getType(<span class="literal">null</span>); <span class="comment">//--&gt;Null(IE7及以下为Object)</span></div><div class="line">getType(<span class="literal">undefined</span>); <span class="comment">//--&gt;Undefined(IE7及以下为Object)</span></div><div class="line">getType([<span class="string">'a'</span>,<span class="string">'b'</span>]); <span class="comment">//--&gt;Array</span></div><div class="line">getType(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); <span class="comment">//--&gt;Function</span></div><div class="line">getType(&#123;<span class="attr">name</span>:<span class="string">'hong'</span>&#125;); <span class="comment">//--&gt;Object</span></div><div class="line">getType(<span class="number">23</span>/<span class="string">'h'</span>); <span class="comment">//--&gt;Number ***NaN类型需要单独区分***</span></div></pre></td></tr></table></figure></p>
+<p>对’3.’方法进行再完善：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">global</span>)</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">dataType</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> _toString = <span class="built_in">Object</span>.prototype.toString;</div><div class="line">        <span class="keyword">var</span> _type =  _toString.call(data).slice(<span class="number">8</span>,<span class="number">-1</span>);</div><div class="line">        <span class="keyword">switch</span>(_type)&#123;</div><div class="line">            <span class="comment">//IE7及其以下,会把null/undefined当做Object。</span></div><div class="line">            <span class="comment">//需要对_type='Object'进行过滤</span></div><div class="line">            <span class="keyword">case</span> <span class="string">'Object'</span>:</div><div class="line">                <span class="keyword">if</span>(obj===<span class="literal">null</span>)&#123;</div><div class="line">                    <span class="keyword">return</span> <span class="string">'Null'</span>;</div><div class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(obj===<span class="literal">undefined</span>)&#123;</div><div class="line">                    <span class="keyword">return</span> <span class="string">'Undefined'</span>;</div><div class="line">                &#125;<span class="keyword">else</span>&#123;</div><div class="line">                    <span class="keyword">return</span> <span class="string">'Object'</span>;</div><div class="line">                &#125;</div><div class="line">            <span class="comment">//所有浏览器对NaN返回'Number'，进行NaN过滤。</span></div><div class="line">            <span class="keyword">case</span> <span class="string">'Number'</span>:</div><div class="line">                <span class="keyword">if</span>(obj!==obj)&#123;</div><div class="line">                    <span class="keyword">return</span> <span class="string">'NaN'</span>;</div><div class="line">                &#125;<span class="keyword">else</span>&#123;</div><div class="line">                    <span class="keyword">return</span> <span class="string">'Number'</span>;</div><div class="line">                &#125;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">return</span> _type;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    global.dataType = dataType;</div><div class="line">&#125;)(<span class="built_in">window</span>);</div></pre></td></tr></table></figure></p>
 
       
 
@@ -312,7 +297,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://holoncaro.github.io/2017/03/23/this-Keyword/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://holoncaro.github.io/2017/03/25/Data-Type/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -326,18 +311,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/24/Reconstruction/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/26/RequireJs/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          ES3语法重构ES5的数组方法
+          用RequireJs模块化Js
         
       </div>
     </a>
   
   
-    <a href="/2017/03/22/Design-pattern/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计模式</div>
+    <a href="/2017/03/24/Reconstruction/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES3语法重构ES5的数组方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -351,7 +336,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="this-Keyword" data-title="Js函数中this关键字的指向" data-url="https://holoncaro.github.io/2017/03/23/this-Keyword/"></div>
+	<div class="ds-thread" data-thread-key="Data-Type" data-title="如果判断Js中的各种数据类型" data-url="https://holoncaro.github.io/2017/03/25/Data-Type/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

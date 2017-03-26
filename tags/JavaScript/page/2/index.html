@@ -6,18 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://holoncaro.github.io">
-  <title>Js函数中this关键字的指向 | Holoncaro&#39;s Blog</title>
+  <title>Tag: JavaScript | Holoncaro&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JavaScript中关键字this的各种指向问题浅析">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Js函数中this关键字的指向">
-<meta property="og:url" content="https://holoncaro.github.io/2017/03/23/this-Keyword/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Holoncaro's Blog">
+<meta property="og:url" content="https://holoncaro.github.io/tags/JavaScript/page/2/index.html">
 <meta property="og:site_name" content="Holoncaro's Blog">
-<meta property="og:description" content="JavaScript中关键字this的各种指向问题浅析">
-<meta property="og:updated_time" content="2017-03-23T13:53:00.002Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Js函数中this关键字的指向">
-<meta name="twitter:description" content="JavaScript中关键字this的各种指向问题浅析">
+<meta name="twitter:title" content="Holoncaro's Blog">
   
     <link rel="alternative" href="/atom.xml" title="Holoncaro&#39;s Blog" type="application/atom+xml">
   
@@ -159,98 +155,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-this-Keyword" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Js函数中this关键字的指向
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/22/interview-questions/" class="archive-article-date">
+  	<time datetime="2017-03-22T10:21:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-22</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/22/interview-questions/">那些坑！种上花，埋上土</a>
     </h1>
   
 
-        
-        <a href="/2017/03/23/this-Keyword/" class="archive-article-date">
-  	<time datetime="2017-03-23T10:39:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JavaScript中关键字this的各种指向问题浅析<br><a id="more"></a></p>
-<blockquote>
-<p>Js的this必须在<strong>函数</strong>中，函数定义时并不确定this指向，必须看<strong>函数谁调用??</strong>。<br>函数调用：直接调用/方法调用/new调用/特殊调用(call.apply，函数绑定到对象上进行调用)</p>
-</blockquote>
-<ol>
-<li>直接调用<br><strong>任何作用域</strong>下，直接通过fn()来进行调用的方式，均为直接调用。比如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">!<span class="function"><span class="keyword">function</span> <span class="title">fn0</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>) =&gt; <span class="built_in">window</span>对象</div><div class="line">  &#125;;</div><div class="line">  fn1();</div><div class="line">&#125;()</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<hr>
-<ol>
-<li>方法调用<br>通过对象调用其方法，obj.method()调用形式，this指向调用该方法的对象：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'外层空间'</span>;</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  <span class="attr">name</span> : <span class="string">'Holoncaro'</span>,</div><div class="line">  <span class="attr">sayName</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">obj.sayName(); =&gt; Holoncaro</div><div class="line">fn = obj.sayName;</div><div class="line">fn(); =&gt; 外层空间，<span class="keyword">this</span>指谁调用!</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<hr>
-<ol>
-<li>new调用<br>通过new构造函数产生新对象（注意是否有return）:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">'Holoncaro'</span>);</div><div class="line"><span class="built_in">console</span>.log(person.name); =&gt; Holoncaro</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>如果构造函数里面有return，那么问题来了：</p>
-<ul>
-<li>return null/undefined/基本数据类型，等同于可以忽略。</li>
-<li>return {}/[]等对象类型，person就指向return的对象。</li>
-</ul>
-<blockquote>
-<p>new Construct()是一种创建对象的语法糖，等价于：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="keyword">var</span> bar = (<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">&gt;   <span class="keyword">var</span> _newObj = &#123;</div><div class="line">&gt;     <span class="keyword">constructor</span> : person,</div><div class="line">&gt;     __proto__ : person.prototype</div><div class="line">&gt;   &#125;;</div><div class="line">&gt;   _newObj.<span class="keyword">constructor</span>(name);</div><div class="line">&gt;   return _newObj;_</div><div class="line">&gt; &#125;)();</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<hr>
-<ol>
-<li>call/apply调用<br>通过将函数和对象绑定，改变执行上下文。并且可用此调用深入理解直接调用和方法调用:</li>
-</ol>
-<blockquote>
-<p>直接调用 fn() &lt;==&gt; fn.call(window)<br>方法调用 obj.method() &lt;==&gt; obj.method.call(obj) </p>
-</blockquote>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              求赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢赏我糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://omwz94m6q.bkt.clouddn.com/148967.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://omwz94m6q.bkt.clouddn.com/1489680.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -262,115 +196,103 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://holoncaro.github.io/2017/03/23/this-Keyword/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/19/Function Execute/" class="archive-article-date">
+  	<time datetime="2017-03-18T16:05:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
+</a>
+        </div>
+    	 
   
-    <a href="/2017/03/24/Reconstruction/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ES3语法重构ES5的数组方法
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/03/22/Design-pattern/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计模式</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="this-Keyword" data-title="Js函数中this关键字的指向" data-url="https://holoncaro.github.io/2017/03/23/this-Keyword/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"holoncaro"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/19/Function Execute/">Function Execute(函数调用顺序解析)</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/15/JSON/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:31:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/15/JSON/">JSON</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">《Js高级程序设计》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
+
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/JavaScript/">&laquo; Prev</a><a class="page-number" href="/tags/JavaScript/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 
           </div>
@@ -393,9 +315,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
