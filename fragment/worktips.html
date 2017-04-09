@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://holoncaro.github.io">
-  <title>Holoncaro&#39;s Blog</title>
+  <title>worktips | Holoncaro&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Holoncaro's Blog">
-<meta property="og:url" content="https://holoncaro.github.io/index.html">
+  <meta name="description" content="12345678&amp;lt;body&amp;gt;  &amp;lt;label&amp;gt;原始字符串: &amp;lt;input type=&quot;text&quot; id=&quot;origin&quot;/&amp;gt;&amp;lt;/label&amp;gt;  &amp;lt;br&amp;gt;  &amp;lt;label&amp;gt;删除子串: &amp;lt;input type=&quot;text&quot; id=&quot;compare&quot;/&amp;gt;&amp;lt;/label&amp;gt;  &amp;lt;br&amp;gt;  &amp;lt;bu">
+<meta property="og:type" content="website">
+<meta property="og:title" content="worktips">
+<meta property="og:url" content="https://holoncaro.github.io/fragment/worktips.html">
 <meta property="og:site_name" content="Holoncaro's Blog">
+<meta property="og:description" content="12345678&amp;lt;body&amp;gt;  &amp;lt;label&amp;gt;原始字符串: &amp;lt;input type=&quot;text&quot; id=&quot;origin&quot;/&amp;gt;&amp;lt;/label&amp;gt;  &amp;lt;br&amp;gt;  &amp;lt;label&amp;gt;删除子串: &amp;lt;input type=&quot;text&quot; id=&quot;compare&quot;/&amp;gt;&amp;lt;/label&amp;gt;  &amp;lt;br&amp;gt;  &amp;lt;bu">
+<meta property="og:image" content="http://omwz94m6q.bkt.clouddn.com/2017-04-06_22-30-36.jpg">
+<meta property="og:updated_time" content="2017-04-06T14:33:59.079Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Holoncaro's Blog">
+<meta name="twitter:title" content="worktips">
+<meta name="twitter:description" content="12345678&amp;lt;body&amp;gt;  &amp;lt;label&amp;gt;原始字符串: &amp;lt;input type=&quot;text&quot; id=&quot;origin&quot;/&amp;gt;&amp;lt;/label&amp;gt;  &amp;lt;br&amp;gt;  &amp;lt;label&amp;gt;删除子串: &amp;lt;input type=&quot;text&quot; id=&quot;compare&quot;/&amp;gt;&amp;lt;/label&amp;gt;  &amp;lt;br&amp;gt;  &amp;lt;bu">
+<meta name="twitter:image" content="http://omwz94m6q.bkt.clouddn.com/2017-04-06_22-30-36.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Holoncaro&#39;s Blog" type="application/atom+xml">
   
@@ -155,333 +161,158 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-jquery-ajax" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/29/jquery-ajax/">利用jQuery封装的AJAX方法获取数据</a>
+    <h1 class="article-title" itemprop="name">
+      worktips
     </h1>
   
 
         
-        <a href="/2017/03/29/jquery-ajax/" class="archive-article-date">
-  	<time datetime="2017-03-29T10:59:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-29</time>
+        <a href="/fragment/worktips.html" class="archive-article-date">
+  	<time datetime="2017-04-06T14:26:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>express搭建服务器,再利用jQuery异步获取服务器端数据</p>
-        
-          <a class="article-more-a" href="/2017/03/29/jquery-ajax/#more">more >></a>
-        
+        <p><img src="http://omwz94m6q.bkt.clouddn.com/2017-04-06_22-30-36.jpg" alt="对字符串的指定删除"><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span>&gt;</span>原始字符串: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"origin"</span>/&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span>&gt;</span>删除子串: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"compare"</span>/&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>提交比对<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  $(<span class="string">'button'</span>).bind(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> strOrigin = $(<span class="string">'#origin'</span>).val();</div><div class="line">    <span class="keyword">var</span> strCompare = $(<span class="string">'#compare'</span>).val();</div><div class="line">    <span class="keyword">var</span> arrOrigin = strOrigin.split(<span class="string">''</span>);</div><div class="line">    <span class="keyword">var</span> arrCompare = strCompare.split(<span class="string">''</span>);</div><div class="line">    <span class="keyword">var</span> result = arrOrigin.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item,index</span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> strCompare.indexOf(item)==<span class="number">-1</span></div><div class="line">    &#125;)</div><div class="line">    $(<span class="string">'span'</span>).text(result.join(<span class="string">''</span>));</div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>另外,若果子字符串严格匹配原始字符串的话,可以考虑:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  $(<span class="string">'button'</span>).bind(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> strOrigin = $(<span class="string">'#origin'</span>).val();</div><div class="line">    <span class="keyword">var</span> strCompare = $(<span class="string">'#compare'</span>).val();</div><div class="line">    <span class="comment">// 在原始字符串中,定位需要删除的子串</span></div><div class="line">    <span class="keyword">var</span> index = strOrigin.indexOf(strCompare);</div><div class="line">    <span class="keyword">if</span>(index==<span class="number">-1</span>)&#123;</div><div class="line">      $(<span class="string">'span'</span>).text(<span class="string">'格式不正确'</span>);</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 为了用数组的splice(),字符串分割成数组</span></div><div class="line">    <span class="keyword">var</span> _para = strOrigin.split(<span class="string">''</span>);</div><div class="line">    <span class="comment">// 将子串删除!返回的是其实是子串,需要的是_para</span></div><div class="line">    _para.splice(index,strCompare.length);</div><div class="line">    <span class="keyword">var</span> result = _para.join(<span class="string">''</span>);</div><div class="line">    $(<span class="string">'span'</span>).text(result);</div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢赏我糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://omwz94m6q.bkt.clouddn.com/148967.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://omwz94m6q.bkt.clouddn.com/1489680.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/29/jquery-ajax/">展开全文 >></a>
-        </p>
-      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
 
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://holoncaro.github.io/fragment/worktips.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
-
+  
 
 
 
 
 
   
-    <article id="post-Waterfall" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/Waterfall/">Waterfall</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/26/Waterfall/" class="archive-article-date">
-  	<time datetime="2017-03-26T14:50:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>函数式实现瀑布流加载效果,在滚动到页面底部时,进行自动加载.</p>
-        
-          <a class="article-more-a" href="/2017/03/26/Waterfall/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/26/Waterfall/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="undefined" data-title="worktips" data-url="https://holoncaro.github.io/fragment/worktips.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"holoncaro"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
   
-    <article id="post-Layout" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/Layout/">页面的经典布局模式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/26/Layout/" class="archive-article-date">
-  	<time datetime="2017-03-26T07:45:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1列及多列的居中布局</p>
-        
-          <a class="article-more-a" href="/2017/03/26/Layout/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/26/Layout/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
 
 
-
-
-
-
-
-
-  
-    <article id="post-RequireJs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/RequireJs/">用RequireJs模块化Js</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/26/RequireJs/" class="archive-article-date">
-  	<time datetime="2017-03-26T03:47:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>RequireJs: require模块思想源于NodeJs,用在前端将JavaScript代码也模块化.</p>
-        
-          <a class="article-more-a" href="/2017/03/26/RequireJs/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">RequireJs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/26/RequireJs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Data-Type" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/25/Data-Type/">如果判断Js中的各种数据类型</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/25/Data-Type/" class="archive-article-date">
-  	<time datetime="2017-03-25T05:10:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>总的来说，typeof对Object区分不清，instanceof只是针对Object。<br>怎么完美判断数据类型??(基本类型String/Number/Boolean引用类型Array/Function/Object)</p>
-        
-          <a class="article-more-a" href="/2017/03/25/Data-Type/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/25/Data-Type/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -503,7 +334,7 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
 		isTag: false,

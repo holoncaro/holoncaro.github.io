@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://holoncaro.github.io">
-  <title>Holoncaro&#39;s Blog</title>
+  <title>todoMVC分析总结 | Holoncaro&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Holoncaro's Blog">
-<meta property="og:url" content="https://holoncaro.github.io/index.html">
+  <meta name="description" content="对Todo构建的分析小结.   实现静态模板 ng-repeat进行数组展开 数组由对象构建,有id/task/completed三个键值对 CheckBox = item.completed - .completed (双向数据绑定ng-model,单项可以ng-checked) ng-model/ng-checked为false时,取消勾选 item.task只需要单项绑定. render不">
+<meta property="og:type" content="website">
+<meta property="og:title" content="todoMVC分析总结">
+<meta property="og:url" content="https://holoncaro.github.io/fragment/todoMVC.html">
 <meta property="og:site_name" content="Holoncaro's Blog">
+<meta property="og:description" content="对Todo构建的分析小结.   实现静态模板 ng-repeat进行数组展开 数组由对象构建,有id/task/completed三个键值对 CheckBox = item.completed - .completed (双向数据绑定ng-model,单项可以ng-checked) ng-model/ng-checked为false时,取消勾选 item.task只需要单项绑定. render不">
+<meta property="og:image" content="http://omwz94m6q.bkt.clouddn.com/2017-04-09_13-52-28.jpg">
+<meta property="og:updated_time" content="2017-04-09T07:33:17.460Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Holoncaro's Blog">
+<meta name="twitter:title" content="todoMVC分析总结">
+<meta name="twitter:description" content="对Todo构建的分析小结.   实现静态模板 ng-repeat进行数组展开 数组由对象构建,有id/task/completed三个键值对 CheckBox = item.completed - .completed (双向数据绑定ng-model,单项可以ng-checked) ng-model/ng-checked为false时,取消勾选 item.task只需要单项绑定. render不">
+<meta name="twitter:image" content="http://omwz94m6q.bkt.clouddn.com/2017-04-09_13-52-28.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Holoncaro&#39;s Blog" type="application/atom+xml">
   
@@ -155,333 +161,206 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-jquery-ajax" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/29/jquery-ajax/">利用jQuery封装的AJAX方法获取数据</a>
+    <h1 class="article-title" itemprop="name">
+      todoMVC分析总结
     </h1>
   
 
         
-        <a href="/2017/03/29/jquery-ajax/" class="archive-article-date">
-  	<time datetime="2017-03-29T10:59:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-29</time>
+        <a href="/fragment/todoMVC.html" class="archive-article-date">
+  	<time datetime="2017-04-09T05:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>express搭建服务器,再利用jQuery异步获取服务器端数据</p>
-        
-          <a class="article-more-a" href="/2017/03/29/jquery-ajax/#more">more >></a>
-        
+        <blockquote>
+<p>对Todo构建的分析小结.</p>
+</blockquote>
+<p><img src="http://omwz94m6q.bkt.clouddn.com/2017-04-09_13-52-28.jpg" alt="模板样式"></p>
+<h2 id="实现静态模板"><a href="#实现静态模板" class="headerlink" title="实现静态模板"></a>实现静态模板</h2><ol>
+<li>ng-repeat进行数组展开</li>
+<li>数组由对象构建,有id/task/completed三个键值对</li>
+<li>CheckBox = item.completed - .completed (双向数据绑定ng-model,单项可以ng-checked)</li>
+<li>ng-model/ng-checked为false时,取消勾选</li>
+<li>item.task只需要单项绑定. <code>render不能用2个大括号,不然hexo无法生成</code></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"item in todoList"</span> <span class="attr">ng-class</span>=<span class="string">"&#123;completed:item.completed&#125;"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"view"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"toggle"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">ng-model</span>=<span class="string">"item.completed"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span>&#123;&#123;item.task&#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"destroy"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"edit"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$scope.todoList = [</div><div class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">task</span>: <span class="string">'睡觉'</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</div><div class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">task</span>: <span class="string">'学习'</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</div><div class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">task</span>: <span class="string">'打豆豆'</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;</div><div class="line">];</div></pre></td></tr></table></figure>
+<h2 id="添加新事项"><a href="#添加新事项" class="headerlink" title="添加新事项"></a>添加新事项</h2><ol>
+<li>ng-model绑定输入框的字符串,时时与M同步更新</li>
+<li>用form包住input,当回车发生默认ng-submit动作,触发函数</li>
+<li>如果没输入东西,函数直接返回</li>
+<li>有东西,该item则添加进$scope.todoList数组</li>
+<li>将输入框重置为’’</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">ng-submit</span>=<span class="string">"todoAdd()"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">"textInput"</span> <span class="attr">class</span>=<span class="string">"new-todo"</span> <span class="attr">placeholder</span>=<span class="string">"add something to do?"</span> <span class="attr">autofocus</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$scope.textInput = <span class="string">''</span>;</div><div class="line">$scope.originIndex = $scope.todoList.length;</div><div class="line"></div><div class="line">$scope.todoAdd = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>($scope.textInput==<span class="string">''</span>)&#123; <span class="keyword">return</span>; &#125;</div><div class="line">  $scope.todoList.push( &#123; <span class="attr">id</span>:++$scope.originIndex, <span class="attr">task</span>:$scope.textInput, <span class="attr">completed</span>:<span class="literal">false</span> &#125; );</div><div class="line">  $scope.textInput = <span class="string">''</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="删除已有的某项"><a href="#删除已有的某项" class="headerlink" title="删除已有的某项"></a>删除已有的某项</h2><ol>
+<li>每一项都保存着删除自己的点击触发函数.</li>
+<li>遍历$scope.todoList数组,获取id相同项.</li>
+<li>用数组的splice方法直接从中间删除某一项.</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"destroy"</span> <span class="attr">ng-click</span>=<span class="string">"todoRemove(item.id)"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$scope.todoRemove = <span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; $scope.todoList.length; i++) &#123;</div><div class="line">    <span class="keyword">if</span>($scope.todoList[i].id===index)&#123;</div><div class="line">      $scope.todoList.splice(i,<span class="number">1</span>);</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="清空完成项-根据条件是否显示"><a href="#清空完成项-根据条件是否显示" class="headerlink" title="清空完成项,根据条件是否显示"></a>清空完成项,根据条件是否显示</h2><ol>
+<li>使用ng-if的true/false判断这标签是否显示,必须返回true/false!!!</li>
+<li>遍历整个$scope.todoList数组,如果存在completed为真,则结束遍历返回真</li>
+<li><p>遍历结束都没有,则返回false.隐藏标签</p>
+</li>
+<li><p>建一个空数组,存储验证后的未完成项</p>
+</li>
+<li>遍历结束后,将此数组赋值给$scope.todoList(所以不可逆转!!)</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"clear-completed"</span> <span class="attr">ng-click</span>=<span class="string">"clearCompleted()"</span> <span class="attr">ng-if</span>=<span class="string">"existCompleted()"</span>&gt;</span>Clear completed<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 判断是否有完成项,决定'Clear completed'是否显示</span></div><div class="line">$scope.existCompleted = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; $scope.todoList.length; i++) &#123;</div><div class="line">    <span class="keyword">if</span>($scope.todoList[i].completed)&#123; <span class="keyword">return</span> <span class="literal">true</span> &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="comment">// 清空完成项 clear completed</span></div><div class="line">$scope.clearCompleted = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  $scope._filterTodoList = [];</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; $scope.todoList.length; i++) &#123;</div><div class="line">    <span class="keyword">if</span>($scope.todoList[i].completed===<span class="literal">false</span>)&#123;</div><div class="line">      $scope._filterTodoList.push($scope.todoList[i])</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  $scope.todoList = $scope._filterTodoList;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="双击进行编辑"><a href="#双击进行编辑" class="headerlink" title="双击进行编辑"></a>双击进行编辑</h2><ol>
+<li>新建一个$scope变量$scope.editeIndex,存储第?个可编辑</li>
+<li>初始值赋为不可能为id的值”-1”</li>
+<li>判断双击项的id值在数组的那个位置,只要不是已完成项,将它的id给$scope.editeIndex</li>
+<li>在V层判断editeIndex为哪个item.id,增加class属性值.editing</li>
+<li>包裹一层<form>,完成后回车将$scope.editeIndex = -1.</form></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"item in todoList"</span> <span class="attr">ng-class</span>=<span class="string">"&#123;completed:item.completed,editing:item.id===editeIndex&#125;"</span>&gt;</span></div><div class="line">...</div><div class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">ng-dblclick</span>=<span class="string">"editeTodoList(item.id)"</span> &gt;</span>&#123;&#123;item.task&#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//双击进行编辑,对已完成的项目禁止再编辑</span></div><div class="line">$scope.editeIndex = <span class="number">-1</span>;</div><div class="line">$scope.editeTodoList = <span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; $scope.todoList.length; i++) &#123;</div><div class="line">    <span class="keyword">if</span>($scope.todoList[i].id===index &amp;&amp; !$scope.todoList[i].completed)&#123;</div><div class="line">      $scope.editeIndex = index;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="实现全选与全不选"><a href="#实现全选与全不选" class="headerlink" title="实现全选与全不选"></a>实现全选与全不选</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 这种移花接木的手法,点击label,实际操作checkbox --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"toggle-all"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"toggle-all"</span> <span class="attr">ng-click</span>=<span class="string">"checkAllTodo()"</span>&gt;</span>Mark all as complete<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 全选完成效果</span></div><div class="line">$scope.checkAll = <span class="literal">true</span>;</div><div class="line">$scope.checkAllTodo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; $scope.todoList.length; i++) &#123;</div><div class="line">    $scope.todoList[i].completed = $scope.checkAll;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// 原值上取反操作,如同开关效果一般,学习了!</span></div><div class="line">  $scope.checkAll = !$scope.checkAll;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢赏我糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://omwz94m6q.bkt.clouddn.com/148967.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://omwz94m6q.bkt.clouddn.com/1489680.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/29/jquery-ajax/">展开全文 >></a>
-        </p>
-      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
 
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://holoncaro.github.io/fragment/todoMVC.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
-
+  
 
 
 
 
 
   
-    <article id="post-Waterfall" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/Waterfall/">Waterfall</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/26/Waterfall/" class="archive-article-date">
-  	<time datetime="2017-03-26T14:50:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>函数式实现瀑布流加载效果,在滚动到页面底部时,进行自动加载.</p>
-        
-          <a class="article-more-a" href="/2017/03/26/Waterfall/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/26/Waterfall/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="undefined" data-title="todoMVC分析总结" data-url="https://holoncaro.github.io/fragment/todoMVC.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"holoncaro"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
   
-    <article id="post-Layout" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/Layout/">页面的经典布局模式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/26/Layout/" class="archive-article-date">
-  	<time datetime="2017-03-26T07:45:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1列及多列的居中布局</p>
-        
-          <a class="article-more-a" href="/2017/03/26/Layout/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/26/Layout/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
 
 
-
-
-
-
-
-
-  
-    <article id="post-RequireJs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/RequireJs/">用RequireJs模块化Js</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/26/RequireJs/" class="archive-article-date">
-  	<time datetime="2017-03-26T03:47:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>RequireJs: require模块思想源于NodeJs,用在前端将JavaScript代码也模块化.</p>
-        
-          <a class="article-more-a" href="/2017/03/26/RequireJs/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">RequireJs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/26/RequireJs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Data-Type" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/25/Data-Type/">如果判断Js中的各种数据类型</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/25/Data-Type/" class="archive-article-date">
-  	<time datetime="2017-03-25T05:10:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>总的来说，typeof对Object区分不清，instanceof只是针对Object。<br>怎么完美判断数据类型??(基本类型String/Number/Boolean引用类型Array/Function/Object)</p>
-        
-          <a class="article-more-a" href="/2017/03/25/Data-Type/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/25/Data-Type/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -503,7 +382,7 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
 		isTag: false,
